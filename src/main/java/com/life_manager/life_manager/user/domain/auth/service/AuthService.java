@@ -1,12 +1,18 @@
 package com.life_manager.life_manager.user.domain.auth.service;
 
-import com.life_manager.life_manager.user.domain.SignInRequest;
-import com.life_manager.life_manager.user.domain.auth.dto.SignInResponse;
-import com.life_manager.life_manager.user.domain.auth.dto.VerificationCodeMessageResponse;
-import com.life_manager.life_manager.user.domain.auth.dto.VerificationRequest;
+import com.life_manager.life_manager.global.error.ErrorCode;
+import com.life_manager.life_manager.global.exception.CustomException;
+import com.life_manager.life_manager.user.domain.auth.dto.*;
 import com.life_manager.life_manager.user.domain.auth.response.VerificationResponse;
+import com.life_manager.life_manager.user.domain.worker.Worker;
+import com.life_manager.life_manager.user.domain.worker.repository.WorkerRepository;
+import com.life_manager.life_manager.user.infra.sms.SmsService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import net.nurigo.sdk.message.exception.NurigoEmptyResponseException;
+import net.nurigo.sdk.message.exception.NurigoMessageNotReceivedException;
+import net.nurigo.sdk.message.exception.NurigoUnknownException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,7 +41,7 @@ public class AuthService {
             NurigoEmptyResponseException,
             NurigoUnknownException {
         if (workerRepository.existsByPhoneNumber(request.receiver())) {
-            throw new CustomException(DUPLICATED_PHONE_NUMBER);
+            throw new CustomException(ErrorCode.DUPLICATED_PHONE_NUMBER);
         }
 
         String verificationCode = generateVerificationCode();
@@ -60,11 +66,11 @@ public class AuthService {
         String verificationCode = (String)session.getAttribute(VERIFICATION_CODE_SESSION_ATTRIBUTE);
 
         if (verificationCode == null) {
-            throw new CustomException(EXPIRED_VERIFICATION_CODE);
+            throw new CustomException(ErrorCode.EXPIRED_VERIFICATION_CODE);
         }
 
         if (!verificationCode.equals(request.verificationCode())) {
-            throw new CustomException(INVALID_VERIFICATION_CODE);
+            throw new CustomException(ErrorCode.INVALID_VERIFICATION_CODE);
         }
 
         setVerifiedSession(session);
@@ -80,21 +86,21 @@ public class AuthService {
 
     public void validateVerificationSession(HttpSession session) {
         if (session.isNew()) {
-            throw new CustomException(EXPIRED_VERIFICATION_SESSION);
+            throw new CustomException(ErrorCode.EXPIRED_VERIFICATION_SESSION);
         }
 
         if (session.getAttribute(VERIFICATION_SESSION_ATTRIBUTE) == null || !(boolean)session.getAttribute(
                 VERIFICATION_SESSION_ATTRIBUTE)) {
-            throw new CustomException(EXPIRED_VERIFICATION_SESSION);
+            throw new CustomException(ErrorCode.EXPIRED_VERIFICATION_SESSION);
         }
     }
 
     public SignInResponse signIn(SignInRequest request) {
         Worker worker = workerRepository.findByMemberAccount(request.memberAccount())
-                .orElseThrow(() -> new CustomException(MEMBER_NOT_FOUND));
+                .orElseThrow(() -> new CustomException(ErrorCode.MEMBER_NOT_FOUND));
 
         if (!passwordEncoder.matches(request.password(), worker.getPassword())) {
-            throw new CustomException(INVALID_PASSWORD);
+            throw new CustomException(ErrorCode.INVALID_PASSWORD);
         }
 
         return new SignInResponse(jwtProvider.generateAccessToken(worker.getId()));

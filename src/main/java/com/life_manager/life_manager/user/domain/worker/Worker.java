@@ -1,5 +1,8 @@
 package com.life_manager.life_manager.user.domain.worker;
 
+import com.life_manager.life_manager.user.domain.post.Post;
+import com.life_manager.life_manager.user.domain.worker.dto.WorkerSignUpRequest;
+import com.life_manager.life_manager.user.domain.worker.relation.WorkerApplicationStatus;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -8,6 +11,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter

@@ -1,6 +1,6 @@
 package com.life_manager.life_manager.user.domain.auth.controller;
 
-import com.life_manager.life_manager.user.domain.SignInRequest;
+import com.life_manager.life_manager.user.domain.auth.dto.SignInRequest;
 import com.life_manager.life_manager.user.domain.auth.dto.SignInResponse;
 import com.life_manager.life_manager.user.domain.auth.dto.VerificationCodeMessageRequest;
 import com.life_manager.life_manager.user.domain.auth.dto.VerificationCodeMessageResponse;

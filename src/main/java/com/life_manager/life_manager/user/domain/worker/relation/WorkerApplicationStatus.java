@@ -1,5 +1,7 @@
 package com.life_manager.life_manager.user.domain.worker.relation;
 
+import com.life_manager.life_manager.user.domain.post.Post;
+import com.life_manager.life_manager.user.domain.worker.Worker;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
