@@ -2,6 +2,7 @@ package com.life_manager.life_manager.user.domain.auth.service;
 
 import com.life_manager.life_manager.global.error.ErrorCode;
 import com.life_manager.life_manager.global.exception.CustomException;
+import com.life_manager.life_manager.global.security.jwt.JwtProvider;
 import com.life_manager.life_manager.user.domain.auth.dto.*;
 import com.life_manager.life_manager.user.domain.auth.response.VerificationResponse;
 import com.life_manager.life_manager.user.domain.worker.Worker;
@@ -21,6 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class AuthService {
     private static final String VERIFICATION_CODE_MESSAGE = "본인확인 인증번호 [%s]를 화면에 입력해주세요.";
+    private static final int VERIFICATION_CODE_LENGTH = 6;
 
     private static final String VERIFICATION_CODE_SESSION_ATTRIBUTE = "verificationCode";
     private static final String VERIFICATION_SESSION_ATTRIBUTE = "verified";

@@ -2,6 +2,7 @@ package com.life_manager.life_manager.user.domain.post.service;
 
 import com.life_manager.life_manager.global.error.ErrorCode;
 import com.life_manager.life_manager.global.exception.CustomException;
+import com.life_manager.life_manager.global.security.util.SecurityContextUtil;
 import com.life_manager.life_manager.user.domain.post.Post;
 import com.life_manager.life_manager.user.domain.post.dto.PostDetailResponse;
 import com.life_manager.life_manager.user.domain.post.dto.PostPreviewResponse;
@@ -17,11 +18,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;

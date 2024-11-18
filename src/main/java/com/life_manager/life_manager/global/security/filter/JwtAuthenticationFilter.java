@@ -7,6 +7,7 @@ import com.life_manager.life_manager.global.exception.CustomException;
 import com.life_manager.life_manager.global.security.constant.HeaderConstant;
 import com.life_manager.life_manager.global.security.constant.PublicUris;
 import com.life_manager.life_manager.global.security.constant.SwaggerUris;
+import com.life_manager.life_manager.global.security.jwt.JwtProvider;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.stereotype.Component;
