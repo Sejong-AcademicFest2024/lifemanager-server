@@ -2,6 +2,7 @@ package com.life_manager.life_manager.user.domain.worker.controller;
 
 import com.life_manager.life_manager.user.domain.worker.dto.WorkerApplicationsStatusResponse;
 import com.life_manager.life_manager.user.domain.worker.dto.WorkerSignUpRequest;
+import com.life_manager.life_manager.user.domain.worker.relation.ApplicationStatus;
 import com.life_manager.life_manager.user.domain.worker.service.WorkerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

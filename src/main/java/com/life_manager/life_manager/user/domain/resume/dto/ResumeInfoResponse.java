@@ -4,16 +4,12 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.life_manager.life_manager.user.domain.certificate.Certificate;
 import com.life_manager.life_manager.user.domain.resume.Career;
 import com.life_manager.life_manager.user.domain.resume.Resume;
+import com.life_manager.life_manager.user.domain.skill.Skill;
 import com.life_manager.life_manager.user.domain.worker.Gender;
 import com.life_manager.life_manager.user.domain.worker.Worker;
-import com.zigtong.clientserver.domain.certificate.entity.Certificate;
-import com.zigtong.clientserver.domain.resume.entity.Career;
-import com.zigtong.clientserver.domain.resume.entity.Resume;
-import com.zigtong.clientserver.domain.skill.entity.Skill;
-import com.zigtong.clientserver.domain.worker.entity.Worker;
-import com.zigtong.clientserver.domain.worker.type.Gender;
 
 import lombok.Builder;
 import lombok.Getter;
