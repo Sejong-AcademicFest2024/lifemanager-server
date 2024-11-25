@@ -1,5 +1,6 @@
 package com.life_manager.life_manager.user.domain.resume.controller;
 
+import com.life_manager.life_manager.global.security.util.SecurityContextUtil;
 import com.life_manager.life_manager.user.domain.resume.dto.*;
 import com.life_manager.life_manager.user.domain.resume.service.ResumeService;
 import io.swagger.v3.oas.annotations.Operation;

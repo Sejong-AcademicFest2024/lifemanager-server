@@ -9,7 +9,9 @@ import com.life_manager.life_manager.user.domain.resume.Career;
 import com.life_manager.life_manager.user.domain.resume.Resume;
 import com.life_manager.life_manager.user.domain.resume.dto.*;
 import com.life_manager.life_manager.user.domain.resume.repository.ResumeRepository;
+import com.life_manager.life_manager.user.domain.skill.Skill;
 import com.life_manager.life_manager.user.domain.skill.repository.SkillRepository;
+import com.life_manager.life_manager.user.infra.S3.S3Service;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -95,7 +97,7 @@ public class ResumeService {
                         .orElseThrow())
                 .toArray(Skill[]::new);
 
-        resume.addSkills(skills);    // FIXME: 기존 데이터 안 지워짐
+        resume.addSkills(skills);
         resumeRepository.save(resume);
     }
 }

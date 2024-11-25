@@ -1,4 +1,5 @@
 package com.life_manager.life_manager.user.domain.resume;
+import com.life_manager.life_manager.user.domain.resume.dto.CareerUpdateRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

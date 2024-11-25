@@ -2,6 +2,7 @@ package com.life_manager.life_manager.user.domain.worker.service;
 
 import com.life_manager.life_manager.global.error.ErrorCode;
 import com.life_manager.life_manager.global.exception.CustomException;
+import com.life_manager.life_manager.global.security.util.SecurityContextUtil;
 import com.life_manager.life_manager.user.domain.auth.service.AuthService;
 import com.life_manager.life_manager.user.domain.resume.Resume;
 import com.life_manager.life_manager.user.domain.resume.repository.ResumeRepository;

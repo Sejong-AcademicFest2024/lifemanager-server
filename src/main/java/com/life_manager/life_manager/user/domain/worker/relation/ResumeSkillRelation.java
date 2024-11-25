@@ -1,5 +1,7 @@
 package com.life_manager.life_manager.user.domain.worker.relation;
 
+import com.life_manager.life_manager.user.domain.resume.Resume;
+import com.life_manager.life_manager.user.domain.skill.Skill;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;

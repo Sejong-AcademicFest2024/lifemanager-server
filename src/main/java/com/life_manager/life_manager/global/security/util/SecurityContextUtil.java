@@ -8,4 +8,10 @@ public final class SecurityContextUtil {
                 .getAuthentication()
                 .getPrincipal();
     }
+
+    public static String extractAdminId() {
+        return (String) SecurityContextHolder.getContext()
+                .getAuthentication()
+                .getPrincipal();
+    }
 }

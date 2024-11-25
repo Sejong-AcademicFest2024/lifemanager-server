@@ -1,7 +1,7 @@
 package com.life_manager.life_manager.global.exception;
 
 import com.life_manager.life_manager.global.error.ErrorCode;
-import com.life_manager.life_manager.global.error.ErrorResponse;
+import com.life_manager.life_manager.global.response.ErrorResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
