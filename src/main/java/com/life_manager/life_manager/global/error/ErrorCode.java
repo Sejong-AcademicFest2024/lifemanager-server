@@ -44,7 +44,14 @@ public enum ErrorCode {
 
     // ID/PW 찾기 에러
     ACCOUNT_NOT_FOUND(HttpStatus.NOT_FOUND, "해당 정보로 가입된 계정이 존재하지 않습니다."),
-    INVALID_SKILL_ID(HttpStatus.BAD_REQUEST, "유효하지 않은 스킬 ID입니다.");
+    INVALID_SKILL_ID(HttpStatus.BAD_REQUEST, "유효하지 않은 스킬 ID입니다."),
+
+
+    // admin
+    DUPLICATED_ACCOUNT_ID(HttpStatus.BAD_REQUEST, "이미 존재하는 계정입니다."),
+    ALREADY_EXISTS(HttpStatus.CONFLICT, "이미 존재하는 값입니다."),
+    INVALID_BUSINESS_REGISTRATION(HttpStatus.BAD_REQUEST, "유효하지 않은 사업자등록번호입니다."),
+    MISMATCHED_PASSWORD(HttpStatus.BAD_REQUEST, "비밀번호가 일치하지 않습니다.");
 
     private final HttpStatus status;
     private final String message;
